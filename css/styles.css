@@ -1,70 +1,74 @@
 :root {
-  --bs-primary: #7c3aed;
-  --bs-primary-rgb: 124, 58, 237;
+  --bs-primary: #fbb04c;
+  --bs-primary-rgb: 251, 176, 76;
   --bs-secondary: #6b7280;
   --bs-secondary-rgb: 107, 114, 128;
   --bs-success: #10b981;
   --bs-warning: #f59e0b;
   --bs-danger: #ef4444;
-  --bs-info: #818cf8;
-  --bs-info-rgb: 129, 140, 248;
-  --bs-light: #1e1b2e;
-  --bs-light-rgb: 30, 27, 46;
-  --bs-dark: #0f0d1a;
-  --bs-dark-rgb: 15, 13, 26;
-  --bs-body-bg: #0f0d1a;
-  --bs-body-color: #e2e8f0;
-  --bs-link-color: #a78bfa;
-  --bs-link-hover-color: #c4b5fd;
-  --bs-border-color: #2d2a45;
+  --bs-info: #fbb04c;
+  --bs-info-rgb: 251, 176, 76;
+  --bs-light: #f8eee1;
+  --bs-light-rgb: 248, 238, 225;
+  --bs-dark: #31302f;
+  --bs-dark-rgb: 49, 48, 47;
+  --bs-body-bg: #f8eee1;
+  --bs-body-color: #31302f;
+  --bs-link-color: #fbb04c;
+  --bs-link-hover-color: #d9922a;
+  --bs-border-color: #e8dccb;
 }
 
 body {
-  background-color: #0f0d1a;
-  color: #e2e8f0;
+  background-color: #f8eee1;
+  color: #31302f;
 }
 
 .navbar.bg-dark {
-  background-color: #0f0d1a !important;
-  border-color: #2d2a45 !important;
+  background-color: #fff !important;
+  border-color: #e8dccb !important;
 }
 
-.text-info { color: #a78bfa !important; }
-.text-secondary { color: #94a3b8 !important; }
+.text-info { color: #fbb04c !important; }
+.text-secondary { color: #7a7672 !important; }
 
 .card {
-  background-color: #1a1730 !important;
-  border-color: #2d2a45 !important;
-  color: #e2e8f0 !important;
+  background-color: #ffffff !important;
+  border-color: #e8dccb !important;
+  color: #31302f !important;
 }
 
 .card .text-dark,
-.card.text-dark { color: #e2e8f0 !important; }
+.card.text-dark { color: #31302f !important; }
 
 .btn-primary {
-  background-color: #7c3aed;
-  border-color: #7c3aed;
-  color: #ffffff;
+  background-color: #fbb04c;
+  border-color: #fbb04c;
+  color: #31302f;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  background-color: #6d28d9;
-  border-color: #6d28d9;
-  color: #ffffff;
+  background-color: #e65a41;
+  border-color: #e65a41;
+  color: #fff;
 }
 
 .btn-secondary {
-  background-color: #4c1d95;
-  border-color: #4c1d95;
-  color: #e2e8f0;
+  background-color: #e8dccb;
+  border-color: #d9cdb8;
+  color: #31302f;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus,
 .btn-secondary:active {
-  background-color: #3b0764;
-  border-color: #3b0764;
-  color: #e2e8f0;
+  background-color: #d9cdb8;
+  border-color: #c9bda8;
+  color: #31302f;
+}
+
+.text-light {
+  color:#e65a41 !important;
 }
