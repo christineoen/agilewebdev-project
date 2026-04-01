@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand text-info fw-bold" href="index.html">&lt;WebFundamentals /&gt;</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link active text-light" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="tutorial.html">Tutorial</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="reflections.html">Reflections</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="d-flex align-items-center justify-content-center text-center py-5">
+    <div class="container">
+      <p class="text-info text-uppercase fw-semibold small mb-3 ls-wide">Learn the web, step by step</p>
+      <h1 class="display-2 fw-bold mb-4">
+        Master <span class="text-info">HTML</span>, <span class="text-info">CSS</span><br>
+        &amp; <span class="text-info">JavaScript</span>
+      </h1>
+      <p class="lead text-secondary mx-auto mb-4" style="max-width: 520px;">
+        A structured guide through the building blocks of the web — from markup to styling to interactivity.
+      </p>
+      <a href="tutorial.html" class="btn btn-primary btn-lg px-5 py-3">Start Learning</a>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section class="container pb-5">
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="card bg-secondary bg-opacity-25 border-secondary text-dark h-100 p-4 text-center">
+          <div class="fs-1 mb-3">📖</div>
+          <h5 class="fw-bold mb-2">Tutorial</h5>
+          <p class="text-secondary small mb-3">Work through clear explanations and live examples covering HTML structure, CSS styling, and JavaScript behaviour.</p>
+          <a href="tutorial.html" class="btn btn-sm btn-primary mt-auto">Go to Tutorial</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-secondary bg-opacity-25 border-secondary text-dark h-100 p-4 text-center">
+          <div class="fs-1 mb-3">🧠</div>
+          <h5 class="fw-bold mb-2">Quiz</h5>
+          <p class="text-secondary small mb-3">Test what you've learned with an interactive quiz. Get instant feedback and see how well you've understood the material.</p>
+          <a href="quiz.html" class="btn btn-sm btn-primary mt-auto">Take the Quiz</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-secondary bg-opacity-25 border-secondary text-dark h-100 p-4 text-center">
+          <div class="fs-1 mb-3">💡</div>
+          <h5 class="fw-bold mb-2">Reflections</h5>
+          <p class="text-secondary small mb-3">Read about the role of AI in learning web development and how these tools were used to build this very app.</p>
+          <a href="reflections.html" class="btn btn-sm btn-primary mt-auto">Read Reflections</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
