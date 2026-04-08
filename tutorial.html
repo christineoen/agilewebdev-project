@@ -1,33 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Fundamentals</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial – Web Fundamentals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
-    <div class="container">
-      <a class="navbar-brand text-info fw-bold" href="index.html">&lt;WebFundamentals /&gt;</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active text-light" href="tutorial.html">Tutorial</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="quiz.html">Quiz</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="cv.html">CV</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="reflections.html">Reflections</a></li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+      <div class="container">
+        <a class="navbar-brand text-info fw-bold" href="index.html">&lt;WebFundamentals /&gt;</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active text-light" href="tutorial.html">Tutorial</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary" href="quiz.html">Quiz</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary" href="cv.html">CV</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary" href="reflections.html">Reflections</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page header -->
+    <header class="py-5 border-bottom border-secondary">
+      <div class="container">
+        <p class="section-label text-info mb-2">Learn the web</p>
+        <h1 class="display-4 fw-bold mb-3">HTML, CSS &amp; JavaScript</h1>
+      </div>
+    </header>
+
+    <div class="container py-5">
+      <div class="row g-5">
+
+        <!-- Table of contents (sidebar) -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="toc-sticky">
+            <p class="section-label text-secondary mb-3">Contents</p>
+            <nav id="toc">
+              <a class="toc-link" href="#html">HTML</a>
+              <a class="toc-link ps-4" href="#html-structure">Document structure</a>
+              <a class="toc-link ps-4" href="#html-elements">Common elements</a>
+              <a class="toc-link ps-4" href="#html-semantics">Semantic HTML</a>
+              <a class="toc-link mt-2" href="#css">CSS</a>
+              <a class="toc-link ps-4" href="#css-selectors">Selectors &amp; specificity</a>
+              <a class="toc-link ps-4" href="#css-box">The box model</a>
+              <a class="toc-link ps-4" href="#css-flexbox">Flexbox layout</a>
+              <a class="toc-link ps-4" href="#css-demo">Live demo</a>
+              <a class="toc-link mt-2" href="#js">JavaScript</a>
+              <a class="toc-link ps-4" href="#js-dom">DOM manipulation</a>
+              <a class="toc-link ps-4" href="#js-events">Events</a>
+              <a class="toc-link ps-4" href="#js-sandbox">DOM sandbox</a>
+              <a class="toc-link mt-2" href="#quiz-cta">Take the quiz</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <main class="col-lg-9">
+
+          <!-- ========== HTML ========== -->
+          <section id="html" class="mb-5">
+            <p class="section-label text-info mb-1">Part 1</p>
+            <h2 class="fw-bold mb-4">HTML — Structure &amp; Meaning</h2>
+            <p>
+              HTML (HyperText Markup Language) is the skeleton of every web page. It does not control how things
+              <em>look</em> — that is CSS's job — but it defines what things <em>are</em>: headings, paragraphs,
+              images, buttons, links. Browsers read this structure to build a <strong>Document Object Model
+              (DOM)</strong>, a live tree of objects that JavaScript can later inspect and modify.
+            </p>
+            <p>
+              Getting HTML right matters because search engines, screen readers, and other tools all rely on it
+              to understand your content. A visually identical page can rank poorly in search or be inaccessible
+              to assistive technology if the underlying markup is meaningless.
+            </p>
+
+            <!-- Document structure -->
+            <h3 id="html-structure" class="h5 fw-bold mt-4 mb-3">Document structure</h3>
+            <p>
+              Every HTML page shares the same outer shell. Understanding each piece is the first step to writing
+              well-formed pages.
+            </p>
+<pre><code><span class="code-comment">&lt;!-- Every HTML document starts with a doctype declaration --&gt;</span>
+<span class="code-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="code-tag">&lt;html</span> <span class="code-attr">lang</span>=<span class="code-string">"en"</span><span class="code-tag">&gt;</span>
+
+<span class="code-tag">&lt;head&gt;</span>
+  <span class="code-comment">&lt;!-- charset tells the browser how to decode text --&gt;</span>
+  <span class="code-tag">&lt;meta</span> <span class="code-attr">charset</span>=<span class="code-string">"UTF-8"</span><span class="code-tag">&gt;</span>
+
+  <span class="code-comment">&lt;!-- viewport makes the page responsive on mobile devices --&gt;</span>
+  <span class="code-tag">&lt;meta</span> <span class="code-attr">name</span>=<span class="code-string">"viewport"</span> <span class="code-attr">content</span>=<span class="code-string">"width=device-width, initial-scale=1.0"</span><span class="code-tag">&gt;</span>
+
+  <span class="code-comment">&lt;!-- title appears in the browser tab and in search results --&gt;</span>
+  <span class="code-tag">&lt;title&gt;</span>My Page<span class="code-tag">&lt;/title&gt;</span>
+
+  <span class="code-comment">&lt;!-- link external stylesheets here --&gt;</span>
+  <span class="code-tag">&lt;link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"styles.css"</span><span class="code-tag">&gt;</span>
+<span class="code-tag">&lt;/head&gt;</span>
+
+<span class="code-tag">&lt;body&gt;</span>
+  <span class="code-comment">&lt;!-- Everything visible goes here --&gt;</span>
+  <span class="code-tag">&lt;h1&gt;</span>Hello, world!<span class="code-tag">&lt;/h1&gt;</span>
+
+  <span class="code-comment">&lt;!-- Scripts at the bottom so HTML loads before JS runs --&gt;</span>
+  <span class="code-tag">&lt;script</span> <span class="code-attr">src</span>=<span class="code-string">"app.js"</span><span class="code-tag">&gt;&lt;/script&gt;</span>
+<span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span>
+</code></pre>
+
+            <!-- Common elements -->
+            <h3 id="html-elements" class="h5 fw-bold mt-4 mb-3">Common elements</h3>
+            <p>
+              HTML has over 100 elements, but a small handful covers the majority of real-world pages. Notice that
+              elements carry meaning beyond their default appearance — a <code>&lt;button&gt;</code> is focusable
+              and keyboard-activatable by default; a plain <code>&lt;div&gt;</code> styled to look like a button
+              is not.
+            </p>
+            <pre><code><span class="code-comment">&lt;!-- Headings: h1 is the main topic, h2–h6 are subsections.
+     Use only ONE h1 per page for good SEO. --&gt;</span>
+<span class="code-tag">&lt;h1&gt;</span>Page title<span class="code-tag">&lt;/h1&gt;</span>
+<span class="code-tag">&lt;h2&gt;</span>Section heading<span class="code-tag">&lt;/h2&gt;</span>
+
+<span class="code-comment">&lt;!-- Paragraphs group blocks of text --&gt;</span>
+<span class="code-tag">&lt;p&gt;</span>Some body text here.<span class="code-tag">&lt;/p&gt;</span>
+
+<span class="code-comment">&lt;!-- Anchor creates a hyperlink; href is the destination --&gt;</span>
+<span class="code-tag">&lt;a</span> <span class="code-attr">href</span>=<span class="code-string">"about.html"</span><span class="code-tag">&gt;</span>About us<span class="code-tag">&lt;/a&gt;</span>
+
+<span class="code-comment">&lt;!-- Images: always include alt text for accessibility --&gt;</span>
+<span class="code-tag">&lt;img</span> <span class="code-attr">src</span>=<span class="code-string">"photo.jpg"</span> <span class="code-attr">alt</span>=<span class="code-string">"A sunset over the mountains"</span><span class="code-tag">&gt;</span>
+
+<span class="code-comment">&lt;!-- Lists: ul = unordered (bullets), ol = ordered (numbers) --&gt;</span>
+<span class="code-tag">&lt;ul&gt;</span>
+  <span class="code-tag">&lt;li&gt;</span>HTML<span class="code-tag">&lt;/li&gt;</span>
+  <span class="code-tag">&lt;li&gt;</span>CSS<span class="code-tag">&lt;/li&gt;</span>
+  <span class="code-tag">&lt;li&gt;</span>JavaScript<span class="code-tag">&lt;/li&gt;</span>
+<span class="code-tag">&lt;/ul&gt;</span>
+
+<span class="code-comment">&lt;!-- Button: use type="button" outside a form to avoid accidental submission --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">type</span>=<span class="code-string">"button"</span><span class="code-tag">&gt;</span>Click me<span class="code-tag">&lt;/button&gt;</span></code></pre>
+
+            <!-- Semantic HTML -->
+            <h3 id="html-semantics" class="h5 fw-bold mt-4 mb-3">Semantic HTML — why it matters</h3>
+            <p>
+              Before HTML5, developers wrapped everything in <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>
+              tags, adding classes like <code>class="header"</code> to convey meaning. HTML5 introduced
+              <strong>semantic elements</strong> — tags whose names describe their role in the page.
+            </p>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <pre><code><span class="code-comment">&lt;!-- Non-semantic: unclear intent --&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"header"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"nav"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"main"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"article"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"footer"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/div&gt;</span></code></pre>
+              </div>
+              <div class="col-md-6">
+                <pre><code><span class="code-comment">&lt;!-- Semantic: intent is self-evident --&gt;</span>
+<span class="code-tag">&lt;header&gt;</span>...<span class="code-tag">&lt;/header&gt;</span>
+<span class="code-tag">&lt;nav&gt;</span>...<span class="code-tag">&lt;/nav&gt;</span>
+<span class="code-tag">&lt;main&gt;</span>
+  <span class="code-tag">&lt;article&gt;</span>...<span class="code-tag">&lt;/article&gt;</span>
+<span class="code-tag">&lt;/main&gt;</span>
+<span class="code-tag">&lt;footer&gt;</span>...<span class="code-tag">&lt;/footer&gt;</span></code></pre>
+              </div>
+            </div>
+            <p>
+              The semantic version is not just cleaner — screen readers announce landmarks like
+              <code>&lt;nav&gt;</code> and <code>&lt;main&gt;</code> so keyboard users can jump directly to them,
+              and search engines weight content inside <code>&lt;article&gt;</code> and <code>&lt;main&gt;</code>
+              more highly than content in anonymous <code>&lt;div&gt;</code>s.
+            </p>
+          </section>
+
+          <hr class="border-secondary my-5">
+
+          <!-- ========== CSS ========== -->
+          <section id="css" class="mb-5">
+            <p class="section-label text-info mb-1">Part 2</p>
+            <h2 class="fw-bold mb-4">CSS — Style &amp; Layout</h2>
+            <p>
+              CSS (Cascading Style Sheets) controls the visual presentation of HTML: colours, fonts, spacing,
+              layout, and animation. The "cascading" in the name describes how the browser resolves conflicts
+              when multiple rules target the same element — a well-understood cascade is the difference between
+              maintainable stylesheets and a patchwork of <code>!important</code> overrides.
+            </p>
+
+            <!-- Selectors -->
+            <h3 id="css-selectors" class="h5 fw-bold mt-4 mb-3">Selectors &amp; specificity</h3>
+            <p>
+              A CSS rule has two parts: a <strong>selector</strong> (which elements to style) and a
+              <strong>declaration block</strong> (what styles to apply). When two rules conflict, the one with
+              higher <em>specificity</em> wins. Understanding this prevents mysterious overrides.
+            </p>
+            <pre><code><span class="code-comment">/* Element selector — lowest specificity, applies broadly */</span>
+<span class="code-prop">p</span> {
+  <span class="code-prop">color</span>: <span class="code-value">#333</span>;
+  <span class="code-prop">line-height</span>: <span class="code-value">1.6</span>;
+}
+
+<span class="code-comment">/* Class selector — more specific than element */</span>
+<span class="code-prop">.highlight</span> {
+  <span class="code-prop">background-color</span>: <span class="code-value">yellow</span>;
+  <span class="code-prop">font-weight</span>: <span class="code-value">bold</span>;
+}
+
+<span class="code-comment">/* ID selector — more specific than class; use sparingly */</span>
+<span class="code-prop">#hero-title</span> {
+  <span class="code-prop">font-size</span>: <span class="code-value">3rem</span>;
+}
+
+<span class="code-comment">/* Compound: element INSIDE a class — good balance of specificity */</span>
+<span class="code-prop">.card p</span> {
+  <span class="code-prop">margin-bottom</span>: <span class="code-value">0</span>;
+}
+
+<span class="code-comment">/* Pseudo-class: targets element state, not the element itself */</span>
+<span class="code-prop">a:hover</span> {
+  <span class="code-prop">text-decoration</span>: <span class="code-value">underline</span>;
+  <span class="code-prop">color</span>: <span class="code-value">#0056b3</span>;
+}</code></pre>
+            <div class="alert border-secondary bg-secondary bg-opacity-10 mt-3" role="note">
+              <strong>Best practice:</strong> Prefer class selectors over IDs in stylesheets. IDs are highly
+              specific and hard to override without resorting to <code>!important</code>. Save IDs for
+              JavaScript hooks (<code>document.getElementById</code>) or anchor links.
+            </div>
+
+            <!-- Box model -->
+            <h3 id="css-box" class="h5 fw-bold mt-4 mb-3">The box model</h3>
+            <p>
+              Every HTML element is a rectangular box made up of four layers. Misunderstanding the box model is
+              the number-one cause of layout bugs.
+            </p>
+            <div class="text-center my-3">
+              <div style="display:inline-block; background:#C9848A33; border:2px dashed #C9848A; padding:8px; border-radius:4px; font-size:0.78rem; color:#3A3A3A;">
+                margin
+                <div style="background:#FBB04C33; border:2px dashed #FBB04C; padding:8px; margin:4px; border-radius:4px;">
+                  border
+                  <div style="background:#8490C833; border:2px dashed #8490C8; padding:8px; margin:4px; border-radius:4px;">
+                    padding
+                    <div style="background:#6B8F5E33; border:2px dashed #6B8F5E; padding:8px; margin:4px; border-radius:4px; text-align:center;">
+                      content
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <pre><code><span class="code-prop">.box</span> {
+  <span class="code-comment">/* content: width × height of the inner content area */</span>
+  <span class="code-prop">width</span>: <span class="code-value">200px</span>;
+  <span class="code-prop">height</span>: <span class="code-value">100px</span>;
+
+  <span class="code-comment">/* padding: space inside the border, between content and border */</span>
+  <span class="code-prop">padding</span>: <span class="code-value">16px</span>;
+
+  <span class="code-comment">/* border: surrounds padding and content */</span>
+  <span class="code-prop">border</span>: <span class="code-value">2px solid #333</span>;
+
+  <span class="code-comment">/* margin: space outside the border, between this element and others */</span>
+  <span class="code-prop">margin</span>: <span class="code-value">24px auto</span>; <span class="code-comment">/* top/bottom 24px, left/right auto (centres it) */</span>
+
+  <span class="code-comment">/* box-sizing: border-box makes width include padding + border.
+     Set this globally — it prevents countless layout surprises. */</span>
+  <span class="code-prop">box-sizing</span>: <span class="code-value">border-box</span>;
+}</code></pre>
+
+            <!-- Flexbox -->
+            <h3 id="css-flexbox" class="h5 fw-bold mt-4 mb-3">Flexbox layout</h3>
+            <p>
+              Flexbox is a one-dimensional layout model that makes aligning and distributing items inside a
+              container straightforward. It replaced older float-based hacks and is the foundation of most modern
+              UI layouts (including Bootstrap's grid).
+            </p>
+            <pre><code><span class="code-comment">/* The container controls how children are arranged */</span>
+<span class="code-prop">.nav-bar</span> {
+  <span class="code-prop">display</span>: <span class="code-value">flex</span>;
+  <span class="code-prop">flex-direction</span>: <span class="code-value">row</span>;           <span class="code-comment">/* left → right (default) */</span>
+  <span class="code-prop">align-items</span>: <span class="code-value">center</span>;         <span class="code-comment">/* vertically centre children */</span>
+  <span class="code-prop">justify-content</span>: <span class="code-value">space-between</span>; <span class="code-comment">/* push logo left, links right */</span>
+  <span class="code-prop">gap</span>: <span class="code-value">1rem</span>;                   <span class="code-comment">/* uniform space between children */</span>
+}
+
+<span class="code-comment">/* Children can grow/shrink to fill available space */</span>
+<span class="code-prop">.search-input</span> {
+  <span class="code-prop">flex</span>: <span class="code-value">1</span>; <span class="code-comment">/* grow to fill remaining width */</span>
+}
+
+<span class="code-comment">/* flex: 1 1 auto is shorthand for grow=1, shrink=1, basis=auto */</span>
+<span class="code-prop">.sidebar</span> {
+  <span class="code-prop">flex</span>: <span class="code-value">0 0 240px</span>; <span class="code-comment">/* fixed 240px — do not grow or shrink */</span>
+}</code></pre>
+
+            <!-- Live CSS Demo -->
+            <h3 id="css-demo" class="h5 fw-bold mt-5 mb-3">Interactive demo — Live style editor</h3>
+            <p>
+              Edit the CSS properties below and watch the preview update in real time. This is exactly how a
+              browser applies your stylesheet — every property change triggers a repaint.
+            </p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label fw-semibold small">CSS properties</label>
+                  <textarea id="live-css" class="form-control demo-css" rows="10" spellcheck="false">background-color: #ffffff;
+color: #3A3A3A;
+font-size: 1.1rem;
+font-family: sans-serif;
+border-radius: 8px;
+padding: 1.5rem;
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);</textarea>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-primary btn-sm" onclick="applyCSS()">Apply</button>
+                  <button class="btn btn-secondary btn-sm" onclick="resetCSS()">Reset</button>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex flex-column">
+                <p class="section-label text-secondary mb-2">Preview</p>
+                <div id="demo-preview"
+                  class="flex-grow-1 border border-secondary rounded d-flex align-items-center justify-content-center bg-white"
+                  style="min-height: 140px;">
+                  <p id="demo-text" class="fs-5 fw-bold m-0 p-3 text-center">I am a styled element.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-secondary small mt-2">
+              Try changing <code>border-radius</code> to <code>0</code>, or set <code>background-color</code>
+              to <code>#FBB04C</code> to see the effect of a full repaint.
+            </p>
+          </section>
+
+          <hr class="border-secondary my-5">
+
+          <!-- ========== JavaScript ========== -->
+          <section id="js" class="mb-5">
+            <p class="section-label text-info mb-1">Part 3</p>
+            <h2 class="fw-bold mb-4">JavaScript — Behaviour &amp; Interactivity</h2>
+            <p>
+              JavaScript is the only programming language that browsers run natively. It transforms static HTML
+              documents into dynamic, interactive applications — fetching data, responding to user actions,
+              animating elements, and validating forms, all without a page reload.
+            </p>
+            <p>
+              Modern JavaScript (ES6+) is expressive and powerful. The key mental model is this: JavaScript
+              <em>reads and modifies the DOM</em> that the browser built from your HTML. When you change the DOM,
+              the browser immediately repaints what the user sees.
+            </p>
+
+            <!-- DOM manipulation -->
+            <h3 id="js-dom" class="h5 fw-bold mt-4 mb-3">DOM manipulation</h3>
+            <p>
+              The DOM (Document Object Model) is the live, tree-shaped representation of your HTML page.
+              JavaScript can query any node in the tree, read or change its content and attributes, and add or
+              remove nodes entirely.
+            </p>
+            <pre><code><span class="code-comment">// Select a single element by CSS selector (returns first match)</span>
+<span class="code-kw">const</span> title = document.<span class="code-fn">querySelector</span>(<span class="code-string">'h1'</span>);
+
+<span class="code-comment">// Change text content — safe, never interprets HTML</span>
+title.textContent = <span class="code-string">'Hello from JavaScript!'</span>;
+
+<span class="code-comment">// Change inline style directly</span>
+title.style.color = <span class="code-string">'#FBB04C'</span>;
+
+<span class="code-comment">// Add / remove CSS classes — preferred over inline styles</span>
+title.classList.<span class="code-fn">add</span>(<span class="code-string">'highlight'</span>);
+title.classList.<span class="code-fn">remove</span>(<span class="code-string">'highlight'</span>);
+title.classList.<span class="code-fn">toggle</span>(<span class="code-string">'highlight'</span>); <span class="code-comment">// adds if absent, removes if present</span>
+
+<span class="code-comment">// Read and set attributes</span>
+<span class="code-kw">const</span> link = document.<span class="code-fn">querySelector</span>(<span class="code-string">'a'</span>);
+console.<span class="code-fn">log</span>(link.<span class="code-fn">getAttribute</span>(<span class="code-string">'href'</span>));   <span class="code-comment">// "/about.html"</span>
+link.<span class="code-fn">setAttribute</span>(<span class="code-string">'href'</span>, <span class="code-string">'/contact.html'</span>);
+
+<span class="code-comment">// Create a new element and insert it into the page</span>
+<span class="code-kw">const</span> newItem = document.<span class="code-fn">createElement</span>(<span class="code-string">'li'</span>);
+newItem.textContent = <span class="code-string">'New list item'</span>;
+document.<span class="code-fn">querySelector</span>(<span class="code-string">'ul'</span>).<span class="code-fn">appendChild</span>(newItem);
+
+<span class="code-comment">// Select multiple elements (returns a NodeList)</span>
+<span class="code-kw">const</span> allParagraphs = document.<span class="code-fn">querySelectorAll</span>(<span class="code-string">'p'</span>);
+allParagraphs.<span class="code-fn">forEach</span>(p => {
+  p.style.lineHeight = <span class="code-string">'1.7'</span>;
+});</code></pre>
+
+            <!-- Events -->
+            <h3 id="js-events" class="h5 fw-bold mt-4 mb-3">Events</h3>
+            <p>
+              User interactions — clicks, key presses, form input, scroll — are communicated to JavaScript via
+              <strong>events</strong>. You register an <strong>event listener</strong> on an element, and the
+              browser calls your callback function each time the event fires.
+            </p>
+            <pre><code><span class="code-kw">const</span> btn = document.<span class="code-fn">querySelector</span>(<span class="code-string">'#my-button'</span>);
+
+<span class="code-comment">// addEventListener(eventType, callback)
+// The event object carries information about what happened.</span>
+btn.<span class="code-fn">addEventListener</span>(<span class="code-string">'click'</span>, <span class="code-kw">function</span>(event) {
+  console.<span class="code-fn">log</span>(<span class="code-string">'Button clicked!'</span>, event.target);
+});
+
+<span class="code-comment">// Arrow functions are common for concise callbacks</span>
+btn.<span class="code-fn">addEventListener</span>(<span class="code-string">'click'</span>, (e) => {
+  e.target.textContent = <span class="code-string">'Clicked!'</span>;
+  e.target.disabled = <span class="code-kw">true</span>;
+});
+
+<span class="code-comment">// Respond to keyboard input on a text field</span>
+<span class="code-kw">const</span> input = document.<span class="code-fn">querySelector</span>(<span class="code-string">'#search'</span>);
+input.<span class="code-fn">addEventListener</span>(<span class="code-string">'input'</span>, (e) => {
+  <span class="code-comment">// e.target.value holds the current text in the field</span>
+  console.<span class="code-fn">log</span>(<span class="code-string">'User typed:'</span>, e.target.value);
+});
+
+<span class="code-comment">// Event delegation: listen on a parent, handle children.
+// More efficient than adding listeners to every child element.</span>
+document.<span class="code-fn">querySelector</span>(<span class="code-string">'#item-list'</span>).<span class="code-fn">addEventListener</span>(<span class="code-string">'click'</span>, (e) => {
+  <span class="code-kw">if</span> (e.target.tagName === <span class="code-string">'LI'</span>) {
+    e.target.classList.<span class="code-fn">toggle</span>(<span class="code-string">'done'</span>);
+  }
+});</code></pre>
+
+            <!-- DOM sandbox -->
+            <h3 id="js-sandbox" class="h5 fw-bold mt-5 mb-3">Interactive demo — DOM sandbox</h3>
+            <p>
+              Use the controls below to add, style, and remove items from a live DOM container. Open your
+              browser's DevTools (<kbd>F12</kbd>) and watch the Elements panel as you make changes — you'll see
+              the DOM tree update in real time.
+            </p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label fw-semibold small">Item text</label>
+                  <input type="text" id="dom-input" class="form-control" placeholder="Enter some text…" maxlength="60">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-semibold small">Colour</label>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-sm colour-pick" data-colour="#FBB04C" style="background:#FBB04C;color:#3A3A3A;border:2px solid transparent;">Amber</button>
+                    <button class="btn btn-sm colour-pick" data-colour="#8490C8" style="background:#8490C8;color:#F8EEE1;border:2px solid transparent;">Periwinkle</button>
+                    <button class="btn btn-sm colour-pick" data-colour="#C9848A" style="background:#C9848A;color:#F8EEE1;border:2px solid transparent;">Rose</button>
+                    <button class="btn btn-sm colour-pick" data-colour="#6B8F5E" style="background:#6B8F5E;color:#F8EEE1;border:2px solid transparent;">Green</button>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-primary btn-sm" onclick="addDomItem()">Add item</button>
+                  <button class="btn btn-secondary btn-sm" onclick="clearDom()">Clear all</button>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex flex-column">
+                <p class="section-label text-secondary mb-2">DOM output</p>
+                <div id="dom-output"
+                  class="flex-grow-1 bg-white border border-secondary rounded p-3"
+                  style="min-height: 80px;">
+                  <p class="text-secondary small mb-0" id="dom-empty-msg">Items you add will appear here.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-secondary small mt-2">
+              Each item has a remove button. Notice how JavaScript uses <code>createElement</code>,
+              <code>appendChild</code>, and <code>removeChild</code> to manage the list.
+            </p>
+          </section>
+
+          <hr class="border-secondary my-5">
+
+          <!-- ========== Quiz CTA ========== -->
+          <section id="quiz-cta" class="text-center py-5">
+            <p class="section-label text-info mb-2">You've reached the end</p>
+            <h2 class="fw-bold mb-3">Ready to test your knowledge?</h2>
+            <a href="quiz.html" class="btn btn-primary btn-lg px-5 py-3">Take the Quiz</a>
+          </section>
+
+        </main>
       </div>
     </div>
-  </nav>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/tutorial.js"></script>
+  </body>
 </html>
