@@ -307,35 +307,31 @@
               Edit the CSS properties below and watch the preview update in real time. This is exactly how a
               browser applies your stylesheet — every property change triggers a repaint.
             </p>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label class="form-label fw-semibold small">CSS properties</label>
-                  <textarea id="live-css" class="form-control demo-css" rows="10" spellcheck="false">background-color: #ffffff;
-color: #3A3A3A;
+            <div class="row g-3 mb-2">
+              <div class="col-md-6 d-flex flex-column">
+                <label class="form-label fw-semibold small">CSS properties</label>
+                <textarea id="live-css" class="form-control demo-css flex-grow-1" rows="10" spellcheck="false">background-color: white;
+color: black;
 font-size: 1.1rem;
 font-family: sans-serif;
 border-radius: 8px;
 padding: 1.5rem;
 box-shadow: 0 4px 12px rgba(0,0,0,0.15);</textarea>
-                </div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-primary btn-sm" onclick="applyCSS()">Apply</button>
-                  <button class="btn btn-secondary btn-sm" onclick="resetCSS()">Reset</button>
-                </div>
               </div>
               <div class="col-md-6 d-flex flex-column">
                 <p class="section-label text-secondary mb-2">Preview</p>
-                <div id="demo-preview"
-                  class="flex-grow-1 border border-secondary rounded d-flex align-items-center justify-content-center bg-white"
-                  style="min-height: 140px;">
+                <div id="demo-preview" class="flex-grow-1 demo-preview">
                   <p id="demo-text" class="fs-5 fw-bold m-0 p-3 text-center">I am a styled element.</p>
                 </div>
               </div>
             </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary btn-sm" onclick="applyCSS()">Apply</button>
+              <button class="btn btn-secondary btn-sm" onclick="resetCSS()">Reset</button>
+            </div>
             <p class="text-secondary small mt-2">
-              Try changing <code>border-radius</code> to <code>0</code>, or set <code>background-color</code>
-              to <code>#FBB04C</code> to see the effect of a full repaint.
+              Try changing <code>border-radius</code> to <code>0px</code>, or set <code>background-color</code>
+              to <code>green</code> to see the effect of a full repaint.
             </p>
           </section>
 

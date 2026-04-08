@@ -100,6 +100,17 @@ code {
 .code-fn      { color: #a6e22e; }
 .code-kw      { color: #f92672; }
 
+/* ── Live CSS demo preview ──────────────────────────────────── */
+.demo-preview {
+  border: 2px solid var(--bs-secondary);
+  border-radius: 8px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
 /* ── Live CSS editor textarea ───────────────────────────────── */
 textarea.demo-css {
   font-family: 'Courier New', Courier, monospace;

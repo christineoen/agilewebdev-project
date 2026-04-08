@@ -1,6 +1,6 @@
 // ── Live CSS demo ──────────────────────────────────────────────
-const DEFAULT_CSS = `background-color: #ffffff;
-color: #3A3A3A;
+const DEFAULT_CSS = `background-color: white;
+color: black;
 font-size: 1.1rem;
 font-family: sans-serif;
 border-radius: 8px;
