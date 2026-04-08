@@ -68,3 +68,85 @@
   border-color: #6470B0;
   color: #F8EEE1;
 }
+
+/* ── Shared label style ─────────────────────────────────────── */
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Code blocks ────────────────────────────────────────────── */
+pre {
+  background-color: #2e2e2e;
+  color: #f8f8f2;
+  border-radius: 8px;
+  padding: 1.25rem;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.code-comment { color: #75715e; }
+.code-tag     { color: #f92672; }
+.code-attr    { color: #a6e22e; }
+.code-string  { color: #e6db74; }
+.code-prop    { color: #66d9ef; }
+.code-value   { color: #ae81ff; }
+.code-fn      { color: #a6e22e; }
+.code-kw      { color: #f92672; }
+
+/* ── Live CSS demo preview ──────────────────────────────────── */
+.demo-preview {
+  border: 2px solid var(--bs-secondary);
+  border-radius: 8px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+/* ── Live CSS editor textarea ───────────────────────────────── */
+textarea.demo-css {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  background-color: #2e2e2e;
+  color: #f8f8f2;
+  border: 1px solid #555;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+/* ── Tutorial table of contents ─────────────────────────────── */
+@media (min-width: 992px) {
+  .toc-sticky {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+.toc-link {
+  display: block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--bs-body-color);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.toc-link:hover {
+  border-left-color: #FBB04C;
+  color: #FBB04C;
+}
+
+.toc-link.active {
+  border-left-color: #FBB04C;
+  color: #FBB04C;
+  font-weight: 600;
+}
