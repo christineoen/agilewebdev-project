@@ -428,24 +428,15 @@ document.<span class="code-fn">querySelector</span>(<span class="code-string">'#
             <!-- DOM sandbox -->
             <h3 id="js-sandbox" class="h5 fw-bold mt-5 mb-3">Interactive demo — DOM sandbox</h3>
             <p>
-              Use the controls below to add, style, and remove items from a live DOM container. Open your
-              browser's DevTools (<kbd>F12</kbd>) and watch the Elements panel as you make changes — you'll see
-              the DOM tree update in real time.
+              Use the controls below to add and remove items from a live DOM container. Watch the <strong>Live code</strong>
+              panel update with the JavaScript that runs each action — then open your browser DevTools and see the
+              Elements panel change in real time too.
             </p>
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="mb-3">
                   <label class="form-label fw-semibold small">Item text</label>
                   <input type="text" id="dom-input" class="form-control" placeholder="Enter some text…" maxlength="60">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label fw-semibold small">Colour</label>
-                  <div class="d-flex gap-2 flex-wrap">
-                    <button class="btn btn-sm colour-pick" data-colour="#FBB04C" style="background:#FBB04C;color:#3A3A3A;border:2px solid transparent;">Amber</button>
-                    <button class="btn btn-sm colour-pick" data-colour="#8490C8" style="background:#8490C8;color:#F8EEE1;border:2px solid transparent;">Periwinkle</button>
-                    <button class="btn btn-sm colour-pick" data-colour="#C9848A" style="background:#C9848A;color:#F8EEE1;border:2px solid transparent;">Rose</button>
-                    <button class="btn btn-sm colour-pick" data-colour="#6B8F5E" style="background:#6B8F5E;color:#F8EEE1;border:2px solid transparent;">Green</button>
-                  </div>
                 </div>
                 <div class="d-flex gap-2">
                   <button class="btn btn-primary btn-sm" onclick="addDomItem()">Add item</button>
@@ -461,10 +452,31 @@ document.<span class="code-fn">querySelector</span>(<span class="code-string">'#
                 </div>
               </div>
             </div>
-            <p class="text-secondary small mt-2">
-              Each item has a remove button. Notice how JavaScript uses <code>createElement</code>,
-              <code>appendChild</code>, and <code>removeChild</code> to manage the list.
-            </p>
+            <div class="mt-3">
+              <p class="section-label text-secondary mb-2">Live code</p>
+              <pre class="code-block mb-0"><code id="dom-code-display"></code></pre>
+            </div>
+
+            <!-- Templates used by tutorial.js -->
+            <template id="dom-item-tpl">
+              <div class="dom-item px-3 py-1 my-1 rounded small d-flex justify-content-between align-items-center bg-secondary bg-opacity-10 border-start border-secondary border-3">
+                <span></span>
+                <button class="btn btn-sm p-0 px-2 fw-bold" style="font-size:1.1rem" aria-label="Remove item">×</button>
+              </div>
+            </template>
+
+            <template id="code-tpl-add"><span class="code-kw">const</span> item = document.<span class="code-fn">createElement</span>(<span class="code-string">'div'</span>);
+item.textContent = <span class="code-string" data-item-text></span>;
+item.classList.<span class="code-fn">add</span>(<span class="code-string">'dom-item'</span>);
+document.<span class="code-fn">querySelector</span>(<span class="code-string">'#dom-output'</span>).<span class="code-fn">appendChild</span>(item);</template>
+
+            <template id="code-tpl-remove">removeBtn.<span class="code-fn">addEventListener</span>(<span class="code-string">'click'</span>, () => {
+  item.<span class="code-fn">remove</span>();
+});</template>
+
+            <template id="code-tpl-clear">document.<span class="code-fn">querySelectorAll</span>(<span class="code-string">'#dom-output .dom-item'</span>)
+  .<span class="code-fn">forEach</span>(item =&gt; item.<span class="code-fn">remove</span>());</template>
+
           </section>
 
           <hr class="border-secondary my-5">

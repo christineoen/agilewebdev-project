@@ -36,18 +36,14 @@ document.getElementById('live-css').addEventListener('input', () => {
 });
 
 // ── DOM sandbox ────────────────────────────────────────────────
-let selectedColour = '#FBB04C';
-
-document.querySelectorAll('.colour-pick').forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Deselect all, select clicked
-    document.querySelectorAll('.colour-pick').forEach(b => b.style.border = '2px solid transparent');
-    btn.style.border = '2px solid #3A3A3A';
-    selectedColour = btn.dataset.colour;
-  });
-});
-// Set initial selected state
-document.querySelector('.colour-pick').style.border = '2px solid #3A3A3A';
+function updateCodeDisplay(action, itemText) {
+  const display = document.getElementById('dom-code-display');
+  const clone = document.getElementById(`code-tpl-${action}`).content.cloneNode(true);
+  if (action === 'add') {
+    clone.querySelector('[data-item-text]').textContent = `'${itemText}'`;
+  }
+  display.replaceChildren(clone);
+}
 
 function addDomItem() {
   const input = document.getElementById('dom-input');
@@ -61,44 +57,33 @@ function addDomItem() {
   const emptyMsg = document.getElementById('dom-empty-msg');
   if (emptyMsg) emptyMsg.style.display = 'none';
 
-  // Create the new item element
-  const item = document.createElement('div');
-  item.className = 'px-3 py-1 my-1 rounded small d-flex justify-content-between align-items-center';
-  item.style.backgroundColor = selectedColour + '33'; // 20% opacity
-  item.style.borderLeft = `4px solid ${selectedColour}`;
-
-  const span = document.createElement('span');
-  span.textContent = text;
-  item.appendChild(span);
-
-  // Remove button
-  const removeBtn = document.createElement('button');
-  removeBtn.textContent = '×';
-  removeBtn.className = 'btn btn-sm p-0 px-2';
-  removeBtn.style.color = selectedColour;
-  removeBtn.style.fontWeight = 'bold';
-  removeBtn.style.fontSize = '1.1rem';
-  removeBtn.setAttribute('aria-label', 'Remove item');
-  removeBtn.addEventListener('click', () => {
+  // Clone the item template and fill in the text
+  const item = document.getElementById('dom-item-tpl').content.cloneNode(true).firstElementChild;
+  item.querySelector('span').textContent = text;
+  item.querySelector('button').addEventListener('click', () => {
     item.remove();
     // Show placeholder again if no items remain
-    const remaining = document.querySelectorAll('#dom-output .my-1');
-    if (remaining.length === 0) {
+    if (document.querySelectorAll('#dom-output .dom-item').length === 0) {
       document.getElementById('dom-empty-msg').style.display = '';
     }
+    updateCodeDisplay('remove');
   });
-  item.appendChild(removeBtn);
 
   document.getElementById('dom-output').appendChild(item);
   input.value = '';
   input.focus();
+  updateCodeDisplay('add', text);
 }
 
 function clearDom() {
   const output = document.getElementById('dom-output');
-  output.querySelectorAll('.my-1').forEach(el => el.remove());
+  output.querySelectorAll('.dom-item').forEach(el => el.remove());
   document.getElementById('dom-empty-msg').style.display = '';
+  updateCodeDisplay('clear');
 }
+
+// Show addDomItem skeleton on page load
+updateCodeDisplay('add', 'your text here');
 
 // Allow Enter key to add an item
 document.getElementById('dom-input').addEventListener('keydown', e => {
