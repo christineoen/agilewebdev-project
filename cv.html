@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Fundamentals</title>
+  <title>CV — Christine Oen</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -28,6 +28,209 @@
       </div>
     </div>
   </nav>
+
+  <main class="container py-5" style="max-width: 960px;">
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <header class="card border-secondary mb-4">
+      <div class="card-body p-4">
+        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4">
+          <img src="images/headshot.jpg" alt="Christine Oen" class="cv-headshot rounded-circle flex-shrink-0">
+          <div>
+            <h1 class="fw-bold mb-1">Christine Oen</h1>
+            <p class="text-secondary mb-3">Full-Stack Software Engineer · Perth, Western Australia</p>
+            <address class="cv-contact d-flex flex-wrap gap-3 mb-3">
+              <a href="">myemailaddy@gmail.com</a>
+              <a href="">1234 567 891</a>
+              <a href="https://github.com/christineoen" target="_blank" rel="noopener">github.com/christineoen</a>
+              <a href="https://linkedin.com/in/christine-oen" target="_blank" rel="noopener">linkedin.com/in/christine-oen</a>
+            </address>
+            <button id="print-btn" class="btn btn-outline-secondary btn-sm" onclick="window.print()">Print CV</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row g-4">
+
+      <!-- ── Sidebar ─────────────────────────────────────────── -->
+      <aside class="col-md-4">
+
+        <!-- Skills -->
+        <section class="card border-secondary mb-4">
+          <div class="card-body">
+            <h2 class="h6 section-label text-secondary mb-3">Skills</h2>
+            <div class="mb-3">
+              <p class="small fw-semibold mb-2">Languages</p>
+              <div class="d-flex flex-wrap gap-1" id="skills-languages"></div>
+            </div>
+            <div class="mb-3">
+              <p class="small fw-semibold mb-2">Frameworks</p>
+              <div class="d-flex flex-wrap gap-1" id="skills-frameworks"></div>
+            </div>
+            <div class="mb-3">
+              <p class="small fw-semibold mb-2">Databases &amp; Infrastructure</p>
+              <div class="d-flex flex-wrap gap-1" id="skills-infra"></div>
+            </div>
+            <div>
+              <p class="small fw-semibold mb-2">AI &amp; Other</p>
+              <div class="d-flex flex-wrap gap-1" id="skills-other"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="card border-secondary mb-4">
+          <div class="card-body">
+            <h2 class="h6 section-label text-secondary mb-3">Education</h2>
+
+            <article class="mb-3">
+              <p class="fw-semibold mb-0">Master of Information Technology</p>
+              <p class="small text-secondary mb-0">University of Western Australia</p>
+              <p class="small text-secondary">2026</p>
+            </article>
+
+            <article class="mb-3">
+              <p class="fw-semibold mb-0">Accelerated Learning Program</p>
+              <p class="small text-secondary mb-0">MakerSquare · Software Development</p>
+              <p class="small text-secondary">2014</p>
+            </article>
+
+            <article class="mb-3">
+              <p class="fw-semibold mb-0">BBA in Accounting, Cum Laude</p>
+              <p class="small text-secondary mb-0">University of Texas at Arlington</p>
+              <p class="small text-secondary">2008</p>
+            </article>
+
+            <article>
+              <p class="fw-semibold mb-0">Certified Public Accountant</p>
+              <p class="small text-secondary">State of Texas · 2010</p>
+            </article>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- ── Main content ────────────────────────────────────── -->
+      <div class="col-md-8">
+
+        <!-- Summary -->
+        <section class="card border-secondary mb-4">
+          <div class="card-body">
+            <h2 class="h6 section-label text-secondary mb-3">Summary</h2>
+            <p>Christine Oen is a full-stack software engineer with a career spanning tax technology consulting, nearly a decade of product engineering, and ongoing graduate study in information technology. She brings a rare combination of technical depth, commercial awareness, and cross-industry experience to every project she works on.</p>
+            <p>Christine began her career at Deloitte Tax LLP in Dallas, where she spent five years as a Senior Tax Consultant partnering with multinational corporations across oil and gas, technology, and manufacturing. She delivered tax technology solutions, trained clients nationally and internationally, supervised junior consultants, and developed Excel-based automation tools — an early sign of her instinct to solve repetitive problems with code.</p>
+            <p>In 2014 she made a deliberate pivot into software, completing an accelerated program at MakerSquare before joining NetSuite and TNO as a Technical Consultant. There she developed custom SuiteScript API implementations, customised field validations, led business requirement sessions, and performed data migration for SuiteCommerce Advanced implementations.</p>
+            <p>From October 2015 to early 2025, Christine served as a Software Engineer at One More Cloud, Inc. in Austin, Texas. Over nearly a decade she built and maintained Ruby on Rails applications with JavaScript and React frontends, automated server provisioning across AWS and Google Cloud Platform, integrated third-party APIs for billing and sales workflows, and collaborated with Platform and UX teams to deliver Elasticsearch-powered search solutions. She acted as the final code reviewer on a team of up to six engineers and authored technical documentation for customers and internal administrators.</p>
+            <p>Throughout her engineering career Christine has embraced AI-assisted development workflows — working with tools such as GitHub Copilot and Claude to accelerate delivery while maintaining rigorous code quality standards. She is currently completing a Master of Information Technology at the University of Western Australia, and her personal projects include <a href="https://proratemate.vercel.app/" target="_blank" rel="noopener">Prorate Mate</a>, a React and Vite application that visualises proration charges across multiple billing periods.</p>
+            <p>Her background in both accounting and engineering gives her an uncommon ability to bridge technical and business contexts — communicating clearly with stakeholders at every level and delivering solutions that are both well-crafted and commercially grounded.</p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="card border-secondary mb-4">
+          <div class="card-body">
+            <h2 class="h6 section-label text-secondary mb-3">Experience</h2>
+
+            <article class="cv-entry mb-4">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-1 mb-1">
+                <div>
+                  <p class="fw-semibold mb-0">Software Engineer</p>
+                  <p class="small text-secondary mb-0">One More Cloud, Inc. · Austin, Texas</p>
+                </div>
+                <span class="badge bg-secondary cv-date">Oct 2015 – Feb 2025</span>
+              </div>
+              <ul class="small mt-2 mb-0">
+                <li>Wrote core features of Ruby on Rails applications, including JavaScript and React frontends.</li>
+                <li>Automated server provisioning on AWS and Google Cloud Platform using state machines.</li>
+                <li>Maintained and upgraded applications to address security vulnerabilities and breaking changes.</li>
+                <li>Integrated third-party APIs for billing, cloud services, and sales workflows.</li>
+                <li>Served as final code reviewer on a team of up to 6 engineers.</li>
+                <li>Collaborated with Platform and UX Design to build customer-facing search solutions.</li>
+                <li>Authored and maintained technical documentation for customers and internal administrators.</li>
+              </ul>
+            </article>
+
+            <article class="cv-entry mb-4">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-1 mb-1">
+                <div>
+                  <p class="fw-semibold mb-0">Technical Consultant</p>
+                  <p class="small text-secondary mb-0">NetSuite &amp; TNO · Austin, Texas</p>
+                </div>
+                <span class="badge bg-secondary cv-date">Jan 2015 – Oct 2015</span>
+              </div>
+              <ul class="small mt-2 mb-0">
+                <li>Developed custom SuiteScript API implementations to populate data in client reports.</li>
+                <li>Customised field validations on Item Fulfilment records using Client Side Script.</li>
+                <li>Led business requirement gathering sessions and produced functional and technical documentation.</li>
+                <li>Performed data migration and reconciliation for SuiteCommerce Advanced implementations.</li>
+              </ul>
+            </article>
+
+            <article class="cv-entry">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-1 mb-1">
+                <div>
+                  <p class="fw-semibold mb-0">Senior Tax Consultant</p>
+                  <p class="small text-secondary mb-0">Deloitte Tax LLP · Dallas, Texas</p>
+                </div>
+                <span class="badge bg-secondary cv-date">Feb 2009 – Feb 2014</span>
+              </div>
+              <ul class="small mt-2 mb-0">
+                <li>Partnered with corporate tax departments to assess processes and deliver tax technology solutions.</li>
+                <li>Implemented provision and compliance software for multinationals across Oil &amp; Gas, Technology, and Manufacturing.</li>
+                <li>Trained clients nationally and internationally on tax processes and software.</li>
+                <li>Directly supervised junior consultants on teams of 3 to 10.</li>
+                <li>Developed Excel automation to streamline work paper preparation.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="card border-secondary mb-4">
+          <div class="card-body">
+            <h2 class="h6 section-label text-secondary mb-3">Projects</h2>
+
+            <article class="mb-3">
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-1">
+                <p class="fw-semibold mb-0">Prorate Mate</p>
+                <a href="https://proratemate.vercel.app/" target="_blank" rel="noopener" class="small">proratemate.vercel.app</a>
+              </div>
+              <p class="small text-secondary mb-1">React · Vite · AI-assisted development</p>
+              <p class="small mb-0">Billing prorator that visualises and summarises proration charges for complex prorations spanning multiple billing periods.</p>
+            </article>
+
+            <!-- GitHub repos fetched via AJAX -->
+            <div id="github-repos" hidden>
+              <hr class="border-secondary">
+              <p class="small fw-semibold mb-2">Public GitHub Repositories</p>
+              <ul id="github-repo-list" class="list-unstyled small mb-0"></ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ── References ──────────────────────────────────────────── -->
+    <section class="card border-secondary mt-2">
+      <div class="card-body">
+        <h2 class="h6 section-label text-secondary mb-3">References &amp; Sources</h2>
+        <p class="small text-secondary mb-3">Sources consulted in the preparation of this assignment, presented in accordance with the <a href="https://guides.library.uwa.edu.au/referencinguwa" target="_blank" rel="noopener">UWA Referencing Guide</a>.</p>
+        <ol class="small mb-0">
+          <li class="mb-2">Mozilla Developer Network. (2024). <em>HTML: HyperText Markup Language</em>. MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/HTML</a></li>
+          <li class="mb-2">Mozilla Developer Network. (2024). <em>CSS: Cascading Style Sheets</em>. MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/CSS</a></li>
+          <li class="mb-2">Mozilla Developer Network. (2024). <em>JavaScript</em>. MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a></li>
+          <li class="mb-2">Bootstrap. (2023). <em>Bootstrap 5.3 documentation</em>. <a href="https://getbootstrap.com/docs/5.3/" target="_blank" rel="noopener">https://getbootstrap.com/docs/5.3/</a></li>
+          <li class="mb-2">GitHub. (2024). <em>REST API documentation</em>. GitHub Docs. <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener">https://docs.github.com/en/rest</a></li>
+          <li>Anthropic. (2024). <em>Claude</em> [Large language model]. Used to assist with code generation, review, and documentation throughout this assignment. <a href="https://www.anthropic.com" target="_blank" rel="noopener">https://www.anthropic.com</a></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cv.js"></script>
 </body>
 </html>

@@ -172,3 +172,53 @@ textarea.demo-css {
   color: #FBB04C;
   font-weight: 600;
 }
+
+/* ── Headshot ────────────────────────────────────────────────── */
+.cv-headshot {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--bs-secondary);
+}
+
+/* ── Contact links ───────────────────────────────────────────── */
+.cv-contact a {
+  font-size: 0.875rem;
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+
+.cv-contact a:hover {
+  color: var(--bs-primary);
+}
+
+/* ── Date badge ──────────────────────────────────────────────── */
+.cv-date {
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Skill badges ────────────────────────────────────────────── */
+.cv-skill-badge {
+  background-color: rgba(132, 144, 200, 0.15);
+  color: var(--bs-body-color);
+  border: 1px solid rgba(132, 144, 200, 0.4);
+  font-weight: 500;
+  font-size: 0.75rem;
+  opacity: 0;
+  animation: badge-in 0.3s ease forwards;
+}
+
+@keyframes badge-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Print styles ────────────────────────────────────────────── */
+@media print {
+  nav, #print-btn { display: none; }
+  .card { border: 1px solid #ccc !important; }
+  a { color: inherit; text-decoration: none; }
+  main { max-width: 100% !important; }
+}
