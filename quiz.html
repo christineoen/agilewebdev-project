@@ -37,8 +37,11 @@
       <h1 class="fw-bold mb-2">Web Fundamentals Quiz</h1>
       <p class="text-secondary mb-4">10 questions covering HTML, CSS &amp; JavaScript · Pass mark: 70%</p>
 
-      <div id="intro-history" hidden>
-        <h2 class="h6 fw-semibold mb-2">Your previous attempts</h2>
+      <div id="quiz-history" hidden>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="h6 fw-semibold mb-0">Quiz history</h2>
+          <button id="clear-history-quiz-btn" class="btn btn-sm btn-outline-danger">Clear history</button>
+        </div>
         <div class="table-responsive mb-4">
           <table class="table table-sm">
             <thead>
@@ -49,7 +52,7 @@
                 <th>Result</th>
               </tr>
             </thead>
-            <tbody id="intro-history-body"></tbody>
+            <tbody id="quiz-history-body"></tbody>
           </table>
         </div>
       </div>
@@ -80,35 +83,13 @@
 
       <!-- Reward (shown on pass) -->
       <div id="reward-section" hidden class="card border-secondary mb-4 overflow-hidden">
-        <img id="reward-img" src="" alt="Congratulations" class="card-img-top" style="max-height: 260px; object-fit: cover;">
-        <div class="card-body">
-          <p class="section-label text-secondary mb-3">A thought for you</p>
-          <blockquote class="mb-0">
-            <p class="fst-italic fs-5 mb-2" id="reward-quote"></p>
-            <footer class="text-secondary small" id="reward-author"></footer>
-          </blockquote>
-        </div>
+        <img id="reward-img" src="" alt="Congratulations" class="card-img-top">
       </div>
 
-      <!-- Attempts history -->
-      <div class="mb-4">
-        <h2 class="h6 fw-semibold mb-2">All attempts</h2>
-        <div class="table-responsive">
-          <table class="table table-sm">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Score</th>
-                <th>Percentage</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody id="results-history-body"></tbody>
-          </table>
-        </div>
+      <div class="d-flex gap-3">
+        <button id="retake-btn" class="btn btn-secondary flex-fill">Try again</button>
+        <a href="quiz.html" class="btn btn-primary flex-fill text-center">View Quiz History</a>
       </div>
-
-      <button id="retake-btn" class="btn btn-secondary px-5">Try again</button>
     </section>
 
   </div>
@@ -138,6 +119,30 @@
       <td class="attempt-pct"></td>
       <td class="attempt-result"></td>
     </tr>
+  </template>
+
+  <!-- ── Unanswered questions modal ────────────────────────────── -->
+  <div class="modal fade" id="unanswered-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title">Unanswered questions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Please answer all questions before submitting. The following are still unanswered:</p>
+          <div id="unanswered-list" class="d-flex gap-2 flex-wrap mb-2"></div>
+          <p class="text-secondary small mb-0">Click a question number to jump to it.</p>
+        </div>
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back to quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template id="unanswered-btn-tpl">
+    <button type="button" class="btn btn-sm btn-outline-secondary"></button>
   </template>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
