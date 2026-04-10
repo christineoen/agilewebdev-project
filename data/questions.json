@@ -1,0 +1,137 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Tech Modern Language",
+      "Hyper Transfer Markup Language",
+      "Home Tool Markup Language"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which HTML element is used for the most important heading on a page?",
+    "options": ["<head>", "<heading>", "<h1>", "<title>"],
+    "answer": 2
+  },
+  {
+    "question": "In the CSS box model, which property controls the space between an element's content and its border?",
+    "options": ["margin", "spacing", "padding", "border-gap"],
+    "answer": 2
+  },
+  {
+    "question": "Which CSS property value creates a flex container?",
+    "options": ["display: block", "display: flex", "display: inline", "display: grid"],
+    "answer": 1
+  },
+  {
+    "question": "What does DOM stand for?",
+    "options": [
+      "Data Object Management",
+      "Document Oriented Markup",
+      "Dynamic Object Module",
+      "Document Object Model"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which JavaScript method selects the first element that matches a CSS selector?",
+    "options": ["getElementById()", "getElement()", "querySelector()", "findElement()"],
+    "answer": 2
+  },
+  {
+    "question": "Which method adds a class to an element's class list?",
+    "options": [
+      "element.class.add()",
+      "element.classList.add()",
+      "element.style.add()",
+      "element.addClassName()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the purpose of the HTML <template> element?",
+    "options": [
+      "To link an external CSS template file",
+      "To create a page layout template in the browser",
+      "To hold reusable HTML that is not rendered until cloned via JavaScript",
+      "To define a header shared across all pages"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which JavaScript method attaches an event handler to an element?",
+    "options": [
+      "element.on()",
+      "element.addEventListener()",
+      "element.listen()",
+      "element.handle()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "In CSS, what does position: absolute do?",
+    "options": [
+      "Positions the element relative to its normal document position",
+      "Locks the element to a fixed position in the viewport",
+      "Removes the element from normal flow, positioned relative to its nearest positioned ancestor",
+      "Positions the element relative to the body element only"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which JavaScript expression correctly clones a template's content?",
+    "options": [
+      "template.copy()",
+      "template.innerHTML.clone()",
+      "template.duplicate(true)",
+      "template.content.cloneNode(true)"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "In CSS Flexbox, which property aligns items along the main axis?",
+    "options": ["align-items", "align-content", "justify-content", "justify-items"],
+    "answer": 2
+  },
+  {
+    "question": "Which CSS selector has the highest specificity?",
+    "options": [
+      "A class selector (.btn)",
+      "An element selector (p)",
+      "An inline style (style=\"...\")",
+      "An ID selector (#header)"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Given these rules targeting the same element, which colour wins?\n.card p { color: red; }\n#main p { color: blue; }",
+    "options": [
+      "red — class selectors always win",
+      "blue — ID selectors have higher specificity",
+      "red — the rule appears last in the file",
+      "Neither — they cancel each other out"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What does the !important declaration do in CSS?",
+    "options": [
+      "Marks the property as a reminder for the developer",
+      "Doubles the specificity of the rule",
+      "Overrides all other declarations for that property, regardless of specificity",
+      "Makes the property apply to all child elements"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A rule is written as: div.container > p.intro — how is its specificity calculated?",
+    "options": [
+      "One ID, no classes, no elements → (1, 0, 0)",
+      "No IDs, two classes, two elements → (0, 2, 2)",
+      "No IDs, one class, two elements → (0, 1, 2)",
+      "No IDs, two classes, one element → (0, 2, 1)"
+    ],
+    "answer": 1
+  }
+]

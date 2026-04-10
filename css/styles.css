@@ -122,6 +122,28 @@ textarea.demo-css {
   resize: vertical;
 }
 
+/* ── Quiz answer options ────────────────────────────────────── */
+.form-check-input[type="radio"] {
+  border-color: #8490C8;
+  border-width: 2px;
+}
+
+.form-check-input[type="radio"]:checked {
+  background-color: #8490C8;
+  border-color: #8490C8;
+}
+
+.form-check.mb-2 {
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.form-check.mb-2:hover {
+  background-color: rgba(132, 144, 200, 0.15);
+}
+
 /* ── Tutorial table of contents ─────────────────────────────── */
 @media (min-width: 992px) {
   .toc-sticky {
