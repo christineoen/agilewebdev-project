@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Fundamentals</title>
+  <title>AI Reflections — Web Fundamentals</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -28,6 +28,140 @@
       </div>
     </div>
   </nav>
+
+  <div class="container py-5" style="max-width: 760px;">
+
+    <!-- ── Intro ───────────────────────────────────────────────── -->
+    <section class="mb-5">
+      <p class="section-label text-secondary mb-2">Critical evaluation</p>
+      <h1 class="fw-bold mb-2">AI Reflections</h1>
+      <p class="text-secondary">How I used AI tools throughout this project, what they got right, where they fell short, and what that means for working with them responsibly.</p>
+    </section>
+
+    <!-- ── Approach ────────────────────────────────────────────── -->
+    <section class="card border-secondary mb-4">
+      <div class="card-body">
+        <h2 class="h6 section-label text-secondary mb-3">My Approach</h2>
+        <p>I came into this project with nearly a decade of professional software engineering experience, which shaped how I chose to work with AI tools. Rather than delegating entire features and accepting the output wholesale, I treated each AI tool as a fast first draft — something to react to and correct rather than something to ship directly.</p>
+        <p>My general workflow throughout the project was:</p>
+        <ul class="mb-3">
+          <li>Write requirements and rubric criteria into markdown files under a <code>guidelines/</code> folder before touching any code</li>
+          <li>Give those guidelines to the AI as context for each task</li>
+          <li>Review the output carefully, make targeted corrections, and inspect the result in the browser before moving on</li>
+          <li>Commit and push manually from the terminal — never through the AI tool</li>
+        </ul>
+        <p class="mb-0">This kept me in control of what went into the repository and meant I could catch problems before they compounded.</p>
+      </div>
+    </section>
+
+    <!-- ── Use Case 1 ───────────────────────────────────────────── -->
+    <section class="card border-secondary mb-4">
+      <div class="card-body">
+        <p class="section-label text-secondary mb-1">Use Case 1</p>
+        <h2 class="h5 fw-semibold mb-3">Project Scaffolding with ChatGPT</h2>
+
+        <h3 class="h6 fw-semibold mt-3 mb-2">Prompt</h3>
+        <blockquote class="cv-quote mb-3">
+          <p class="mb-0">"Here is the full project specification for a web fundamentals assignment. How would you organise the folder structure? What files do I need to create?"</p>
+        </blockquote>
+        <p class="small text-secondary mb-3">(Full project spec pasted as context.)</p>
+
+        <h3 class="h6 fw-semibold mb-2">What the AI Produced</h3>
+        <p>ChatGPT returned a sensible top-level folder structure: an <code>index.html</code> at the root, subfolders for <code>css/</code>, <code>js/</code>, <code>data/</code>, and <code>images/</code>, and placeholder HTML files for each page. It also suggested separating concerns by keeping JavaScript out of HTML files — advice that turned out to be more aspirational than the later AI tools managed in practice.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Changes I Made</h3>
+        <p>I added a <code>guidelines/</code> folder that wasn't in the AI's suggestion — a place to store the rubric and my own notes for each page so future AI prompts would have structured context to work from. This was my own addition and turned out to be one of the more useful decisions of the project.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Limitations Noticed</h3>
+        <p class="mb-0">ChatGPT's suggestions were generic — it had no knowledge of the site's eventual colour palette, Bootstrap usage, or the specific rubric requirements for each page. The structure it produced was a reasonable starting point but not a finished plan. It also couldn't anticipate how the pages would evolve, so some of the empty files it suggested were later reorganised.</p>
+      </div>
+    </section>
+
+    <!-- ── Use Case 2 ───────────────────────────────────────────── -->
+    <section class="card border-secondary mb-4">
+      <div class="card-body">
+        <p class="section-label text-secondary mb-1">Use Case 2</p>
+        <h2 class="h5 fw-semibold mb-3">Page Generation — Kiro vs Claude Code</h2>
+
+        <h3 class="h6 fw-semibold mt-3 mb-2">Prompt (Kiro — Index page)</h3>
+        <blockquote class="cv-quote mb-3">
+          <p class="mb-0">"Create the index page based on the requirements in guidelines/index.md. Use Bootstrap for layout and styling. Update the colour defaults to match these preferences: [colour values]."</p>
+        </blockquote>
+
+        <h3 class="h6 fw-semibold mb-2">What the AI Produced</h3>
+        <p>Kiro handled the index page well. It applied Bootstrap correctly, picked up on the colour preferences, and produced clean, readable HTML. I accepted most of what it generated with only minor tweaks.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Prompt (Tutorial page — first attempt with Kiro)</h3>
+        <blockquote class="cv-quote mb-3">
+          <p class="mb-0">"Create the tutorial page based on guidelines/tutorial.md. Follow the same structure and colour palette as the index page."</p>
+        </blockquote>
+
+        <h3 class="h6 fw-semibold mb-2">What the AI Produced</h3>
+        <p>The tutorial page Kiro produced didn't look the way I wanted. The layout felt off and the interactive sections weren't structured how I had envisioned them. I scrapped it and gave the same prompt to Claude Code instead.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Claude Code's Output — and What I Had to Fix</h3>
+        <p>Claude Code's version looked significantly better, but it had several structural problems:</p>
+        <ul>
+          <li>Custom styles were written inline in <code>&lt;style&gt;</code> tags inside the HTML file rather than in <code>styles.css</code></li>
+          <li>It introduced many bespoke CSS rules that duplicated or overrode Bootstrap utilities unnecessarily</li>
+          <li>All JavaScript was embedded directly in <code>&lt;script&gt;</code> tags at the bottom of the HTML rather than in a separate file</li>
+        </ul>
+        <p>I followed up with corrective prompts:</p>
+        <blockquote class="cv-quote mb-2">
+          <p class="mb-0">"Use Bootstrap utility classes where you can instead of writing custom CSS. Move all custom styles into styles.css."</p>
+        </blockquote>
+        <blockquote class="cv-quote mb-3">
+          <p class="mb-0">"Move all JavaScript into a separate file: js/tutorial.js."</p>
+        </blockquote>
+        <p>After those corrections the structure matched the rest of the project. I also reviewed all of the interactive sections myself and made changes to improve usability — in particular the JavaScript demo, where I wanted the actual code being executed to be visible to the user as they interacted with it. I also updated the DOM manipulation section to use the <code>&lt;template&gt;</code> tag, which I was already familiar with and felt was a cleaner approach.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Limitations Noticed</h3>
+        <p class="mb-0">The most consistent limitation across both Kiro and Claude Code was a tendency to solve problems in whatever way was immediately available rather than the way that was most consistent with the project's conventions. Neither tool had a strong sense of "this project already does X this way" without being told explicitly. They also both defaulted to inline code organisation unless specifically instructed otherwise — not a good default for maintainable projects.</p>
+      </div>
+    </section>
+
+    <!-- ── Use Case 3 ───────────────────────────────────────────── -->
+    <section class="card border-secondary mb-4">
+      <div class="card-body">
+        <p class="section-label text-secondary mb-1">Use Case 3</p>
+        <h2 class="h5 fw-semibold mb-3">Code Explanation with GitHub Copilot</h2>
+
+        <h3 class="h6 fw-semibold mt-3 mb-2">Prompt</h3>
+        <blockquote class="cv-quote mb-3">
+          <p class="mb-0">"Explain what this section of code is doing." <em>(Highlighted specific blocks in the tutorial page.)</em></p>
+        </blockquote>
+
+        <h3 class="h6 fw-semibold mb-2">What the AI Produced</h3>
+        <p>GitHub Copilot gave clear, accurate plain-English explanations of the code Claude Code had generated — particularly useful for understanding the event delegation patterns and the <code>DocumentFragment</code> usage in the DOM manipulation sections. It didn't just describe what each line did; it explained the intent behind the pattern, which helped me decide whether I actually agreed with the approach before keeping it.</p>
+
+        <h3 class="h6 fw-semibold mb-2">How I Used This</h3>
+        <p>I used Copilot's explanations as a verification step rather than a learning shortcut. If the explanation didn't match my expectation of what the code should do, that was a signal to look more carefully. In a few cases I spotted that the AI had generated code that was technically functional but doing something subtly different from what I intended.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Limitations Noticed</h3>
+        <p class="mb-0">Copilot's explanations were generally accurate at the line level but occasionally missed the broader context — explaining <em>what</em> a function did without flagging <em>whether</em> it was the right function for the situation. That judgement still required me to bring my own knowledge of the problem.</p>
+      </div>
+    </section>
+
+    <!-- ── Critical Evaluation ─────────────────────────────────── -->
+    <section class="card border-secondary mb-4">
+      <div class="card-body">
+        <h2 class="h6 section-label text-secondary mb-3">Critical Evaluation</h2>
+
+        <h3 class="h6 fw-semibold mb-2">Reliability</h3>
+        <p>AI tools were reliable for well-scoped, clearly described tasks — generating a component from a spec, explaining a code block, or suggesting a folder structure. They became less reliable when the task required awareness of project-wide conventions or involved trade-offs that weren't spelled out in the prompt. The quality of output was directly proportional to the quality of context provided.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Risks</h3>
+        <p>The most significant risk I observed was over-acceptance — the temptation to ship AI output without reading it carefully because it <em>looks</em> correct. Generated code is syntactically plausible and often runs without errors, but that doesn't mean it does what you intended, follows the project's conventions, or is maintainable. For a developer without prior experience, this risk would be much higher.</p>
+        <p>A secondary risk is organisational: without the <code>guidelines/</code> structure I put in place, it would have been easy for different AI tools to pull the project in different directions, producing inconsistent patterns across pages.</p>
+
+        <h3 class="h6 fw-semibold mb-2">Ethical Considerations</h3>
+        <p>Using AI to assist with an assessed assignment raises legitimate questions about authorship. My position is that the judgement, structure, corrections, and final decisions were mine — the AI acted as a fast typist for a first draft, not as the author of the work. But I think it's important to be honest about that distinction rather than obscuring it, which is why this page exists and why AI assistance is credited explicitly in the references section of the CV page.</p>
+        <p class="mb-0">More broadly, AI tools trained on public code carry licensing and attribution questions that aren't fully resolved. For a commercial project I would be more cautious about accepting generated code without understanding its provenance.</p>
+      </div>
+    </section>
+
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
