@@ -57,6 +57,7 @@
               <a class="toc-link mt-2" href="#js">JavaScript</a>
               <a class="toc-link ps-4" href="#js-dom">DOM manipulation</a>
               <a class="toc-link ps-4" href="#js-events">Events</a>
+              <a class="toc-link ps-4" href="#js-template">The template element</a>
               <a class="toc-link ps-4" href="#js-sandbox">DOM sandbox</a>
               <a class="toc-link mt-2" href="#quiz-cta">Take the quiz</a>
             </nav>
@@ -424,6 +425,44 @@ document.<span class="code-fn">querySelector</span>(<span class="code-string">'#
     e.target.classList.<span class="code-fn">toggle</span>(<span class="code-string">'done'</span>);
   }
 });</code></pre>
+
+            <!-- Template element -->
+            <h3 id="js-template" class="h5 fw-bold mt-4 mb-3">The <code>&lt;template&gt;</code> element</h3>
+            <p>
+              The <code>&lt;template&gt;</code> tag holds HTML that the browser parses but never renders.
+              Its contents are completely inert — no scripts run, no images load, nothing is displayed — until
+              you deliberately clone it and insert it into the page with JavaScript.
+            </p>
+            <p>
+              This makes it ideal for repeating UI patterns like list items, cards, or table rows. Compared to
+              building elements with <code>createElement</code> and setting properties one by one, a template
+              keeps the structure in HTML where it belongs, and compared to setting <code>innerHTML</code> it
+              carries no XSS risk because no string parsing happens.
+            </p>
+            <pre><code><span class="code-comment">&lt;!-- Define the template in HTML — it is invisible on the page --&gt;</span>
+<span class="code-tag">&lt;template</span> <span class="code-attr">id</span>=<span class="code-string">"card-tpl"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"card"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;p</span> <span class="code-attr">class</span>=<span class="code-string">"card-title"</span><span class="code-tag">&gt;&lt;/p&gt;</span>
+    <span class="code-tag">&lt;p</span> <span class="code-attr">class</span>=<span class="code-string">"card-body"</span><span class="code-tag">&gt;&lt;/p&gt;</span>
+  <span class="code-tag">&lt;/div&gt;</span>
+<span class="code-tag">&lt;/template&gt;</span></code></pre>
+            <pre><code><span class="code-comment">// Access the template's content — a DocumentFragment</span>
+<span class="code-kw">const</span> tpl = document.<span class="code-fn">getElementById</span>(<span class="code-string">'card-tpl'</span>);
+
+<span class="code-comment">// cloneNode(true) makes a deep copy of the fragment</span>
+<span class="code-kw">const</span> clone = tpl.content.<span class="code-fn">cloneNode</span>(<span class="code-kw">true</span>);
+
+<span class="code-comment">// Populate the cloned content before inserting</span>
+clone.<span class="code-fn">querySelector</span>(<span class="code-string">'.card-title'</span>).textContent = <span class="code-string">'My Card'</span>;
+clone.<span class="code-fn">querySelector</span>(<span class="code-string">'.card-body'</span>).textContent = <span class="code-string">'Some content here.'</span>;
+
+<span class="code-comment">// Append to the page — only now does it become visible</span>
+document.<span class="code-fn">getElementById</span>(<span class="code-string">'container'</span>).<span class="code-fn">appendChild</span>(clone);</code></pre>
+            <div class="alert border-secondary bg-secondary bg-opacity-10 mt-3" role="note">
+              <strong>Note:</strong> <code>cloneNode(true)</code> returns a <code>DocumentFragment</code>, not a
+              single element. If you need to set an <code>id</code> or attribute on the root element after
+              appending, append first, then use <code>container.lastElementChild</code> to reference it.
+            </div>
 
             <!-- DOM sandbox -->
             <h3 id="js-sandbox" class="h5 fw-bold mt-5 mb-3">Interactive demo — DOM sandbox</h3>
