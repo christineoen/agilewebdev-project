@@ -159,8 +159,21 @@ function showResults(score, total, percentage, passed) {
 
 // ── Fetch reward (on pass) ──────────────────────────────────────
 function fetchReward() {
-  document.getElementById('reward-img').src = `https://coffee.alexflipnote.dev/random?t=${Date.now()}`;
-  document.getElementById('reward-section').hidden = false;
+  fetch('https://dog.ceo/api/breeds/image/random')
+    .then(r => {
+      if (!r.ok) throw new Error(`Dog API error (${r.status})`);
+      return r.json();
+    })
+    .then(data => {
+      if (!data || typeof data.message !== 'string' || data.status !== 'success') {
+        throw new Error('Unexpected Dog API response shape');
+      }
+      document.getElementById('reward-img').src = data.message;
+      document.getElementById('reward-section').hidden = false;
+    })
+    .catch(() => {
+      document.getElementById('reward-section').hidden = true;
+    });
 }
 
 // ── localStorage ────────────────────────────────────────────────
